@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>艾陞倫 Web Design Excellent</title>
+
+    <link rel="icon" type="image/svg+xml" href="./images/logo/logo-shadow.svg" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="top-blue-box"></div>
+
+    <!-- 上方導覽列 start -->
+    <nav>
+            <div class="nav-centent">
+                <a href="#" onclick="clickNavItem(1)" class="logo">
+                    <img src="images/logo/logo-shadow.png">
+                </a>
+                <div class="text-bounce-bottom-container">
+                    <div class="item-list">
+                        <a class="item" onclick="clickNavItem(1)" href="#price-work-flow">
+                            <img src="./images/icon/icon_handshake.svg">
+                            <label>合作流程</label>
+                        </a>
+                        <a class="item" onclick="clickNavItem(2)" href="#service-list">
+                            <img src="./images/icon/icon_menu.svg">
+                            <label>服務項目</label>
+                        </a>
+                        <a class="item" onclick="clickNavItem(3)" href="#portfolio-block">
+                            &nbsp;
+                            <img src="./images/icon/icon_2_img.svg">
+                            <label>作品集</label>
+                            &nbsp;
+                        </a>
+                        <a class="item" onclick="clickNavItem(4)" href="#footer">
+                            <img src="./images/icon/icon_phone.svg">
+                            <label>聯絡我們</label>
+                        </a>
+                    </div>
+                    <!-- 藍色彈性底線 -->
+                    <div class="text-bounce-bottom-box">
+                        <div class="text-bounce-bottom"></div>
+                    </div>
+                </div>
+                <i class="fa fa-close" id="nav-close" style="margin-right: 10px;"></i>
+                <i class="fa fa-bars" id="nav-show"></i>
+            </div>
+    </nav>
+    <!-- 上方導覽列 end -->
+
+    
+    <!-- 網頁標頭 過場動畫 start -->
+    <section class="header-animation">
+        <img class="head-right-little-img" src="./images/background/bg-left-little-star.png">
+        <img class="head-left-img" src="./images/background/bg-right-star.png" >
+        <img class="head-right-img" src="./images/background/bg-left-big-block.png">
+
+        <div class="header-animation-text-content">
+            <div class="move-slogn-container">
+                <div class="move-slogn-right">企業網站。形象網站</div>
+            </div>
+            <div class="center-title left-black animate">
+                <h1 class="left-black animate">艾陞倫網頁設計</h1>
+                <p class="slogan-little left-black animate">專業網頁設計，塑造您的獨特品牌形象，讓您在網絡世界中脫穎而出</p>
+            </div>
+            <div class="move-slogn-container">
+                <div class="move-slogn-left">UI/UX。RWD。SEO</div>
+            </div>            
+        </div>
+        <img class="icon-double-down-arr" src="./images/icon/icon-double-down-arr.png">
+    </section>
+    <!-- 網頁標頭 過場動畫 end -->
+
+
+    <!-- 合作流程 start -->    
+    <section class="price-work-flow" id="price-work-flow">
+        <img src="./images/background/bg-left-little-star.png" class="left-little-img">
+        <img src="./images/background/bg-right-star.png" class="right-img">
+        <h2 class="price-work-flow-title" data-bg-color="#C3C3C3" data-fg-color="#00407E">合作流程</h2>
+        <p>
+            在尋找一個優流設計服務前，不妨先了解我們的服務流程。我們可將流程由繁化簡。
+            <br>
+            必須由客戶與我們密切合作往來，替您取得優質成果。
+        </p>
+        <!-- 合作流程 之 輪播圖 -->
+        <div class="price-work-flow-slide">
+            <div class="flow-tab-list-container">
+                <div class="flow-tab-list">
+                    <div class="flow-tab" onclick="clickFlowSlide(1)">
+                        <img id="svgImg1" src="./images/flow-slide/flowIcon1.svg"></img>
+                        <img id="svgImg1click" src="./images/flow-slide/flowIcon1click.svg"></img>                        
+                    </div>
+                    <div class="fa fa-arrow-right" aria-hidden="true"></div>
+                    <div class="fa fa-arrow-down" aria-hidden="true"></div>
+                    <div class="flow-tab" onclick="clickFlowSlide(2)">
+                        <img id="svgImg2" src="./images/flow-slide/flowIcon2.svg"></img>
+                        <img id="svgImg2click" src="./images/flow-slide/flowIcon2click.svg"></img>   
+                    </div>
+                    <div class="fa fa-arrow-right" aria-hidden="true"></div>
+                    <div class="fa fa-arrow-down" aria-hidden="true"></div>
+                    <div class="flow-tab" onclick="clickFlowSlide(3)">
+                        <img id="svgImg3" src="./images/flow-slide/flowIcon3.svg"></img>
+                        <img id="svgImg3click" src="./images/flow-slide/flowIcon3click.svg"></img>   
+                    </div>
+                    <div class="fa fa-arrow-right" aria-hidden="true"></div>
+                    <div class="fa fa-arrow-down" aria-hidden="true"></div>
+                    <div class="flow-tab" onclick="clickFlowSlide(4)">
+                        <img id="svgImg4" src="./images/flow-slide/flowIcon4.svg"></img>
+                        <img id="svgImg4click" src="./images/flow-slide/flowIcon4click.svg"></img>   
+                    </div>
+                </div>
+                <!-- 藍色彈性底線 -->
+<!-- 
+                <div class="price-work-flow-bounce-bottom-box">
+                    <div class="price-work-flow-bounce-bottom"></div>
+                </div>
+                 -->
+            </div>
+                
+            <ul class="flow-slide-list">
+                    <li class="slide" id="slide1">
+                        <h3>需求分析</h3>
+                        <p> 
+                            1. 會請專業的顧問, 不只了解你的需求, 更是裡解你的痛點。
+                            <br>
+                            2. 擬出初步專案管理規劃與簡易UI畫面來幫助團隊的討論。
+                        </p>
+                    </li>
+                    <li class="slide" id="slide2">
+                        <h3>開發回饋</h3>
+                        <p>
+                            1. 簽約後, 技術團隊便會立刻開發, 並在開發的各個階段與您確認, 保持期望一致。
+                            <br>
+                            2. 團隊致力於敏捷開發, 若客戶有其他期待, 可在一定範圍內調整。
+                        </p>
+                    </li>
+                    <li class="slide" id="slide3">
+                        <h3>驗收優化</h3>
+                        <p>
+                            1. 協助將網站上架, 網域等相關設定建置。
+                            <br>
+                            2. 可是情況教育訓練, 讓客戶更理解操作。
+                        </p>
+                    </li>
+                    <li class="slide" id="slide4">
+                        <h3>持續優化</h3>
+                        <p>
+                            1. 上架後若有任何疑問, 都能協助您維護與強化。
+                            <br>
+                            2. 每年定期都可有進一步的客製優惠訪談, 如: 介面美化, 功能升級等......。
+                        </p>
+                    </li>
+
+                    <div class="flow-button-icon-list">
+                        <label id="flowIcon1" onclick="clickFlowSlide(1)"></label>
+                        <label id="flowIcon2" onclick="clickFlowSlide(2)"></label>
+                        <label id="flowIcon3" onclick="clickFlowSlide(3)"></label>
+                        <label id="flowIcon4" onclick="clickFlowSlide(4)"></label>
+                    </div>
+            </ul>
+        </div>
+    </section>
+    <!-- 合作流程 end -->
+
+
+    <!-- 服務項目列表 start -->
+    <section class="service-list" id="service-list">
+        <div class="right-block">
+            <h2 class="service-list-title" data-bg-color="#C3C3C3" data-fg-color="#00407E">服務項目</h2>
+            <img class="right-logo" src="./images/background/logo-blue-right-top.png.svg">
+        </div>
+        <div class="left-block">            
+            <img src="./images/background/bg-left-big-block.png" class="left-img">
+            <div class="item left animate">
+                <h3 class="left animate">PM 專案顧問</h3>
+                <p class="left animate">
+                    提供全方位網站顧問諮詢服務，包括網頁分析規劃、平面設計、網站上線、網頁操作培訓，
+                    確保您的網站建置順利進行且維護得以持續。
+                </p>
+            </div>
+            <div class="item left animate">
+                <h3 class="left animate">RWD 網頁設計</h3>
+                <p class="left animate">
+                    網站皆採用RWD嚮應式技術，無論您使用電腦、平板或手機，都能輕鬆流暢地瀏覽網站。
+                </p>
+            </div>
+            <div class="item left animate">
+                <h3 class="left animate">SEO 搜尋引擎優化</h3>
+                <p class="left animate">
+                    我們專注於品牌電商網站的全面SEO優化，使您的商品在搜索排名中獲得更大的競爭優勢。
+                 
+                </p>
+            </div>
+            <div class="item left animate">
+                <h3 class="left animate">OPT 持續優化</h3>
+                <p class="left animate">
+                    提供網站操作教學和技術支援，專業人員指導您操作，讓您輕鬆掌握後台管理，維運更加順暢。
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- 服務項目 end -->
+
+
+    <!-- 作品集 start -->
+    <section class="portfolio-block" id="portfolio-block">
+        <img class="background-round-traingle" src="./images/background/round-traingle.svg">
+        <h2 class="portfolio-block-title" data-bg-color="#C3C3C3" data-fg-color="#00407E">作品集</h2>
+        <p>
+            我們對各產業的網頁設計都有不同的見解，能滿足不同客戶的需求。
+        </p>
+        <!-- 作品集 之 輪播圖 -->    
+        <div class="computer-background-img">
+            <ul class="portfolio-slide-list">
+                <input type="radio" id="portfolio1" name="control" checked>
+                <input type="radio" id="portfolio2" name="control">
+                <input type="radio" id="portfolio3" name="control">
+                <input type="radio" id="portfolio4" name="control">
+                <input type="radio" id="portfolio5" name="control">
+                <input type="radio" id="portfolio6" name="control">
+                <input type="radio" id="portfolio7" name="control">
+                <input type="radio" id="portfolio8" name="control">
+                <input type="radio" id="portfolio9" name="control">
+                <input type="radio" id="portfolio10" name="control">
+                <input type="radio" id="portfolio11" name="control">
+                <input type="radio" id="portfolio12" name="control">
+                
+                <li class="portfolio-slide">
+                    <a target="_blank" href="https://aloo31124.github.io/2024-html-css-layout/portfolio/TravelWebsite/index.html">
+                        <img src="./images/portfolio-slide/portfolio-slide1.png">
+                    </a>                    
+                </li>
+                <li class="portfolio-slide">
+                    <a target="_blank" href="https://aloo31124.github.io/2024-html-css-layout/portfolio/CoffeeWebsite/index.html">
+                        <img src="./images/portfolio-slide/portfolio-slide2.png">
+                    </a>                    
+                </li>
+                <li class="portfolio-slide">
+                    <a target="_blank" href="https://aloo31124.github.io/2024-html-css-layout/portfolio/PersonalPortfolio/home.html">
+                        <img src="./images/portfolio-slide/portfolio-slide3.png">
+                    </a>                    
+                </li>
+                <li class="portfolio-slide">
+                    <a target="_blank" href="https://aloo31124.github.io/2024-html-css-layout/portfolio/DentistWebsiteFrontend/index.html">
+                        <img src="./images/portfolio-slide/portfolio-slide4.png">
+                    </a>                    
+                </li>
+                <li class="portfolio-slide">
+                    <a target="_blank" href="https://aloo31124.github.io/2024-html-css-layout/portfolio/WeddingWebsite/index.html">
+                        <img src="./images/portfolio-slide/portfolio-slide5.png">
+                    </a>                    
+                </li>
+                <li class="portfolio-slide">
+                    <a target="_blank" href="https://aloo31124.github.io/2024-html-css-layout/portfolio/FoodWebsite/index.html">
+                        <img src="./images/portfolio-slide/portfolio-slide6.png">
+                    </a>                    
+                </li>
+                <li class="portfolio-slide">
+                    <a target="_blank" href="https://aloo31124.github.io/2024-html-css-layout/portfolio/AppLandingWebsite/index.html">
+                        <img src="./images/portfolio-slide/portfolio-slide7.png">
+                    </a>                    
+                </li>
+                <li class="portfolio-slide">
+                    <a target="_blank" href="https://aloo31124.github.io/2024-html-css-layout/portfolio/EdufordWebsite/index.html">
+                        <img src="./images/portfolio-slide/portfolio-slide8.png">
+                    </a>                    
+                </li>
+                <li class="portfolio-slide">
+                    9
+                </li>
+                <li class="portfolio-slide">10</li>
+                <li class="portfolio-slide">11</li>
+                <li class="portfolio-slide">12</li>
+            </ul>
+        </div>
+        <div class="portfolio-slide-tab-list">
+            <label class="tab" for="portfolio1">旅行</label>
+            <label class="tab" for="portfolio2">咖啡店</label>
+            <label class="tab" for="portfolio3">個人履歷</label>
+            <label class="tab" for="portfolio4">牙醫醫美</label>
+            <label class="tab" for="portfolio5">婚禮企劃</label>
+            <label class="tab" for="portfolio6">餐廳</label>
+            <label class="tab" for="portfolio7">應用程式</label>
+            <label class="tab" for="portfolio8">教育</label>
+<!-- 
+            <label class="tab" for="portfolio9">花店</label>
+            <label class="tab" for="portfolio10">服飾店</label>
+            <label class="tab" for="portfolio11">電子科技</label>
+            <label class="tab" for="portfolio12">汽車</label>
+             -->
+        </div>
+    </section>
+    <!-- 作品集 end -->
+
+
+    <!-- 頁尾 start -->
+    <section class="footer" id="footer">
+        <div class="item-list">
+            <div class="item">
+                <i class="">©</i>
+                <p>
+                    2024 Copyright 艾陞倫有限公司
+                </p>
+            </div>
+            <div class="item">
+                <i class="fas fa-envelope"></i>
+                <p>
+                    excellence1225@gmail.com
+                </p>
+            </div>
+            <div class="item">
+                <i class="fas fa-phone"></i>
+                <p>
+                    09-756-78789
+                </p>
+            </div>
+            <div class="item">
+                <img src="./images/icon/icon-line-green.png" alt="">
+            </div>
+        </div>
+    </section>
+    <!-- 頁尾 end -->
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="./script.js"></script>
+
+</body>
+</html>

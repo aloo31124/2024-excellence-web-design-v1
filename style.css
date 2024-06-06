@@ -1,0 +1,1223 @@
+
+/* =========================== 共用設定 start =========================== */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Doppio+One&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap'); */
+/* font-family: 'Nunito', sans-serif; */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+/* font-family: "Poppins", sans-serif; */
+
+@import url('./fonts/doppio-one.css');
+@font-face {
+    font-family: "DFPZongYiW9-B5"; /* 自訂義 */
+    src: url("./fonts/DFPZongYiW9-B5.TTF") format("truetype");
+}
+@font-face {
+    font-family: "jf-openhuninn-2.0"; /* 自訂義 粉圓字體 */
+    src: url("./fonts/jf-openhuninn-2.0.ttf") format("truetype");
+}
+
+:root {
+    --primary-orange: #F1B41B;
+    --primary-orange-shadow: #d6a21d;
+    --primary-blue: #00407E;
+    --primary-white: #FFFFFF;
+    --primary-black: #000000;
+    --gray: #231F20;
+    --light-gray: #BFBEBB;
+    --light-orange: #FFFDFA;
+
+    /* 優先等級: 最高, 如: 上方導覽列 */
+    --z-index-top1-nav: 999;
+    /* 優先等級: 次高, 如: 輪播點選bar, 畫面內點選按鈕 */
+    --z-index-top2-click: 900;
+    /* 優先等級: 中等, 初始 */
+    --z-index-top3-defalut: 500;
+    /* 優先等級: 底層, 如: 底圖 */
+    --z-index-top4-background: 1;
+
+    /* 網頁標頭 大標題, 移動標題 */
+    --h1-desktop-and-large: 7rem;
+    --h1-laptop-and-pad: 6rem;
+    --h1-mobile: 2.5rem;
+    /* 每個 區塊section 次標題h2: 報價流程, 服務項目, 作品集 */
+    --h2-desktop-and-large: 5rem;
+    --h2-laptop-and-pad: 4rem;
+    --h2-mobile: 2.5rem;
+    /* 每個 區塊section 第三標題 h3 */
+    --h3-desktop-and-large: 1.75rem;
+    --h3-laptop-and-pad: 1.5rem;
+    --h3-mobile: 1.25rem;
+    /* 合作流程 h3 客製設定 => h2 0.8倍縮小 */
+    --h3-flow-slide-desktop-and-large: calc(var(--h2-desktop-and-large)*0.5);
+    --h3-flow-slide-laptop-and-pad: calc(var(--h2-laptop-and-pad)*0.5);
+    --h3-flow-slide-mobile: calc(var(--h2-mobile)*0.5);
+    /* 內文 */
+    --p-desktop-and-large: 1.25rem;
+    --p-laptop-and-pad: 1.25rem;
+    --p-mobile: 0.8rem;
+    /* 網頁標頭 slogan */
+    --p-slogan-desktop-and-large: calc(var(--p-desktop-and-large)*1.2);
+    --p-slogan-laptop-and-pad: calc(var(--p-laptop-and-pad)*1.2);
+    --p-slogan-mobile: calc(var(--p-mobile)*1.2);
+    /* 作品集 輪播圖 tab p內文 客製設定,圓角比例 => 比一般p 縮小 0.8 */
+    --p-portfolio-tab-size-desktop-and-large: calc(var(--p-desktop-and-large)*0.8);
+    --p-portfolio-tab-height-desktop-and-large: calc(var(--p-desktop-and-large)*1.2); /* radius比例 */
+    --p-portfolio-tab-size-laptop-and-pad: calc(var(--p-laptop-and-pad)*0.8);
+    --p-portfolio-tab-height-laptop-and-pad: calc(var(--p-laptop-and-pad)*1.2); /* radius比例 */
+    --p-portfolio-tab-size-mobile: calc(var(--p-mobile)*0.8);
+    --p-portfolio-tab-height-mobile: calc(var(--p-mobile)*1.2); /* radius比例 */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Nunito', sans-serif; => 移除初始文字 */
+    text-decoration: none;
+    text-transform: capitalize;
+    outline: none; 
+    border:none;
+}
+/* 上方導覽列 點選切換 使用滑動 =>  gsap 會與 scroll-behavior 發生衝突, 造成 scroll 卡頓 */
+html {
+    scroll-behavior: smooth; 
+}
+
+
+section {
+    width: 100vw;
+    height: 100vh;
+    min-width: 320px;
+    min-height: 700px; /* 避免 瀏覽器 高度過矮 被擠壓破版 */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    /* text-align: center; */
+}
+h1 {
+    font-size: var(--h1-desktop-and-large);
+    color: var(--primary-blue);
+    text-align: center;
+
+    letter-spacing: 0.25em;
+    margin: 20px 0;
+
+    /* Doppio One */
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    font-style: normal;
+    opacity: 0.2;
+}
+span.fadeanimate {
+    color: var(--primary-orange);
+    transition: 0.5s;
+}
+h2 {
+    font-size: var(--h2-desktop-and-large);
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    /* -webkit-text-stroke: 1px var(--primary-black); */ /* 邊框 */
+    color: var(--primary-white);
+}
+h3 {
+    font-size: var(--h3-desktop-and-large);
+}
+p {
+    /* jf-openhuninn-2.0 */
+    font-family: "jf-openhuninn-2.0", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--p-desktop-and-large);
+}
+label {
+    /* jf-openhuninn-2.0 */
+    font-family: "jf-openhuninn-2.0", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--p-desktop-and-large);
+}
+a {
+    font-family: "jf-openhuninn-2.0", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--p-desktop-and-large);
+    color: var(--primary-black);
+}
+
+/* 滑鼠滾動 on scroll 動畫效果 start */
+.animate-container  {
+    border: white solid 2px;
+}
+
+.up.animate {
+    transform:  translateY(150px);
+}
+.left-black.animate {
+    transform:  translateX(-100px);
+}
+.left.animate {
+    transform:  translateX(-100px);
+}
+.right.animate {
+    transform:  translateX(100px);
+}
+:where(.up, .right).animate > * {
+    opacity: 0;
+    transition: 1s;
+}
+:where(.up, .right).animate.this > * {
+    opacity: 0.5;
+    transform: translateY(0) translateX(0);
+}
+:where(.left-black).animate > * {
+    opacity: 0;
+    transition: 1s;
+}
+:where(.left-black).animate.this > * {
+    opacity: 1;
+    transform: translateX(100px);
+}
+:where(.left).animate > * {
+    opacity: 0;
+    transition: 1s;
+}
+:where(.left).animate.this > * {
+    opacity: 1;
+    transform: translateX(100px);
+}
+/* 滑鼠滾動 on scroll 動畫效果 end */
+
+/* scroll section h2標題 底色變色 start */
+span {
+    transition: all 0.5s ease;
+}
+span.fade { 
+    color: var(--primary-blue);
+}
+/* scroll section h2標題 底色變色 end */
+
+
+/* =========================== 共用設定 end =========================== */
+
+.top-blue-box {
+    width: 100vw;
+    height: 50px;
+    background: var(--primary-blue);
+    position: absolute;
+}
+
+
+/* 上方導覽列 start */
+nav {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0.5% auto;
+    position: fixed;
+    top: 3.5px;
+    z-index: var(--z-index-top1-nav);
+}
+
+nav .fa-bars {
+    font-size: 30px;
+    color: var(--primary-blue);
+    display: none;
+    cursor: pointer;
+}
+
+nav .text-bounce-bottom-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    /* align-items: center;  */ /* 造成 藍色底線無法位移*/
+}
+
+nav .text-bounce-bottom-box {
+    height: 5px;
+    width: 7%;
+    position: absolute;
+    bottom: -4px;
+    left: 65px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav .text-bounce-bottom-box .text-bounce-bottom {
+    height: 5px;
+    width: 100%;
+    border-radius: 2.5px;
+    background: var(--primary-blue);
+}
+
+nav .nav-centent {
+    min-width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--primary-white);
+
+    height: 60px;
+    border-radius: 30px;
+    box-shadow: 1px 5px 10px var(--light-gray);
+}
+
+nav .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+}
+
+nav .logo img {
+    width: 40px;
+}
+
+nav .nav-centent .item-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+nav .nav-centent .item-list .item {
+    width: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    cursor: pointer;
+    white-space:nowrap;
+    transition: 1s;
+}
+nav .fa-close {
+    padding: 1rem;
+}
+
+
+nav .nav-centent .item-list .item img {
+    padding: 0 5px;
+    max-width: 25px;
+}
+/* 上方導覽列 end */
+
+
+/* 網頁標頭 過場動畫 start */
+.header-animation {
+    height: 200vh;
+    position: relative;
+}
+
+.header-animation .head-right-little-img {
+    position: absolute;
+    top: 8%;
+    right: 15%;
+}
+
+.header-animation .head-left-img {
+    position: absolute;
+    top: 55vh;
+    left: 7vw;
+}
+
+.header-animation .head-right-img {
+    position: absolute;
+    top: 115vh;
+    right: 12vw;
+}
+
+.header-animation .header-animation-text-content {
+    position: fixed;
+    bottom: 30vh;
+    overflow: hidden;
+}
+
+.icon-double-down-arr {
+    position: fixed;
+    left: 50%;
+    bottom: 10%;
+    transition: 2s;
+    cursor: pointer; /* 滑鼠游標 */
+    z-index: var(--z-index-top1-nav);
+}
+
+.header-animation .move-from-right {
+    position: relative;
+}
+
+.header-animation .center-title {
+    padding: 40px 0;
+}
+
+.header-animation .center-title .slogan-little {
+    text-align: center;
+    font-size: var(--p-slogan-desktop-and-large);
+    letter-spacing: 0.25em;
+}
+
+/* 網頁標頭 移動標頭 效果 */
+.move-slogn-container {
+    width: 100vw;
+    height: var(--h1-desktop-and-large);
+    font-size: var(--h1-desktop-and-large);
+    position: relative;
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    overflow: hidden;
+}
+.move-slogn-container .move-slogn-right {
+    position: absolute;
+    white-space:nowrap;
+    right: 0;
+    animation: move-slogn-right 1.5s linear;
+    
+    -webkit-text-stroke: 1px var(--primary-orange); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 0.1;
+}
+.move-slogn-container .move-slogn-left {
+    position: absolute;
+    white-space:nowrap;
+    left: 0;
+    animation: move-slogn-left 1.5s linear;
+
+    
+    -webkit-text-stroke: 1px var(--primary-orange); /* 邊框 */
+    color: var(--primary-orange);
+    opacity: 0.1;
+}
+
+@keyframes move-slogn-right {
+    50% {
+        right: 40px;
+    }
+    100% {
+        right: 0px;
+    }
+}
+@keyframes move-slogn-left {
+    50% {
+        left: 40px;
+    }
+    100% {
+        left: 0px;
+    }
+}
+/* 網頁標頭 過場動畫 end */
+
+
+/* 報價流程 start 
+    => h2 區塊標頭
+    => 下方輪播圖 高度需 RWD, 否則易跑版
+*/
+.price-work-flow {
+    position: relative;
+    background: var(--light-orange);
+}
+
+.price-work-flow .price-work-flow-title {
+    margin-top: 1%;
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--primary-blue); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 1;
+}
+
+.price-work-flow .left-little-img {
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    width: 100px;
+    z-index: var(--z-index-top4-background);
+}
+
+.price-work-flow .right-img {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 500px;
+    z-index: var(--z-index-top4-background);
+}
+
+.price-work-flow p {
+    max-width: 80%;
+    color: var(--gray);
+    line-height: 25px;
+    padding: 2px 0;
+    margin-top: 2%; /* 上方距離 */
+}
+/* 報價流程 end */
+
+
+/* 報價流程-輪播圖 start */
+.price-work-flow-slide {
+    max-width: 80%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.price-work-flow-slide .flow-tab-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+
+    z-index: var(--z-index-top2-click);
+    position: relative;
+}
+
+.price-work-flow-slide .flow-tab-list .flow-tab {
+    width: var(--h2-desktop-and-large);
+    z-index: var(--z-index-top2-click);
+}
+
+.price-work-flow-slide .flow-tab-list .fa-arrow-right {
+    font-size: var(--p-desktop-and-large);
+}
+.price-work-flow-slide .flow-tab-list .fa-arrow-down {
+    display: none;
+}
+
+.flow-slide-list {
+    position: relative;
+    width: 800px;
+    height: 180px;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+}
+
+.price-work-flow-bounce-bottom-box {
+    height: 5px;
+    width: 7%;
+    position: relative;
+    bottom: -2px;
+    left: 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.price-work-flow-bounce-bottom {
+    height: 5px;
+    width: 100%;
+    border-radius: 2.5px;
+    background: var(--primary-blue);
+}
+
+/* yoyoyo */
+.slide h3 {
+    font-size: var(--h3-flow-slide-desktop-and-large);
+    font-family: "jf-openhuninn-2.0";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--primary-orange); /* 邊框 */
+    color: var(--primary-orange);
+    margin-top: 0;
+}
+
+.slide {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+
+    position: absolute;
+    top: -20px;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* 字體調整 */
+    font-family: Helvetica;
+    color: var(--primary-white);
+    z-index: var(--z-index-top2-click);
+
+    /* 圖片輪播移動效果 */
+    transition: .5s transform ease-in-out;
+}
+
+.slide:nth-of-type(1) {
+    left: 0;
+}
+
+.slide:nth-of-type(2) {
+    left: 100%;
+}
+
+.slide:nth-of-type(3) {
+    left: 200%;
+}
+
+.slide:nth-of-type(4) {
+    left: 300%;
+}
+
+input[type="radio"] {
+    position: relative;
+    display: none;
+}
+
+.flow-button-icon-list {
+    position: absolute;
+    width: 100%;
+    bottom: 12px;
+    text-align: center;
+    z-index: var(--z-index-top2-click);
+}
+
+.flow-button-icon-list label {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-orange);
+    border-radius: 5px;
+
+    transition: 0.25s;
+}
+
+.flow-button-icon-list label:nth-of-type(1) {
+    width: 20px;
+}
+
+
+/* 服務項目列表 start */
+.service-list {
+    position: relative; /* 讓背景圖 定位 */
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-list .service-list-title {
+    margin-top: 5%;
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--primary-blue); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 1;
+}
+
+.service-list .left-block {
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    text-align: left;
+    z-index: var(--z-index-top3-defalut); /* 避免被下方三角形遮到 */
+
+    
+    font-family: "Poppins", sans-serif;
+}
+
+.service-list .left-block .left-img {
+    position: absolute;
+    top: 10%;
+    left: 15%;
+}
+
+.service-list .left-block .item h3 {
+    color: var(--primary-black);
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+.service-list .left-block .item p {
+    color: var(--primary-black);
+    opacity: 0.45;
+    font-weight: 100;
+    line-height: 30px;
+    padding: 2px 0 25px 0;
+}
+
+.service-list .right-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    text-align: left;
+    width: 30%;
+    height: 60%;
+}
+
+.service-list .right-block h2 {
+    margin-bottom: 40%;
+}
+
+.service-list .right-block .right-logo {
+    position: absolute;
+    top: 40%;
+    right: 14%;
+    width: 200px;
+    z-index: var(--z-index-top4-background);
+}
+/* 服務項目列表 end */
+
+/* 作品集 start */
+.portfolio-block {
+    background: var(--primary-orange);
+    color: var(--primary-white);
+    border-radius: 100px 100px 0 0;
+    position: relative;
+}
+
+.background-round-traingle {
+    position: absolute;
+    top: -10%;
+    left: 12%;
+    width: 10%;
+    z-index: var(--z-index-top4-background);
+}
+
+.portfolio-block .portfolio-block-title {
+    margin-top: 1%;
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--primary-blue); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 1;
+}
+
+.portfolio-block p {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.computer-background-img {
+    position: relative;
+    width: 800px;    
+    height: 500px;           
+    background-image:
+        url("./images/portfolio-slide/bg-computer.png");
+    background-position: center; /* ?? 中央底圖 */
+    background-size: cover;     /* ?? 中央底圖 */
+}
+
+.portfolio-slide-list {
+    position: relative;
+    top: 23px;
+    left: 134px;
+    width: 526px;     
+    height: 353px;
+
+    background-color: var(--primary-white);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    z-index: var(--z-index-top2-click);
+}
+
+.portfolio-slide {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+
+    
+    background-color: lightblue;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+
+    /* flex如下三個常見效果，置中: */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    /* 字體調整 */
+    font-family: Helvetica;
+    color: #fff;
+
+
+    /* 圖片輪播移動效果 */
+    transition: .5s transform ease-in-out;
+}
+
+.portfolio-slide img {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+}
+
+.portfolio-slide a {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+}
+
+
+.portfolio-slide:nth-of-type(1) {
+    left: 0;
+}
+.portfolio-slide:nth-of-type(2) {
+    left: 100%;
+}
+.portfolio-slide:nth-of-type(3) {
+    left: 200%;
+}
+.portfolio-slide:nth-of-type(4) {
+    left: 300%;
+}
+.portfolio-slide:nth-of-type(5) {
+    left: 400%;
+}
+.portfolio-slide:nth-of-type(6) {
+    left: 500%;
+}
+.portfolio-slide:nth-of-type(7) {
+    left: 600%;
+}
+.portfolio-slide:nth-of-type(8) {
+    left: 700%;
+}
+.portfolio-slide:nth-of-type(9) {
+    left: 800%;
+}
+.portfolio-slide:nth-of-type(10) {
+    left: 900%;
+}
+.portfolio-slide:nth-of-type(11) {
+    left: 1000%;
+}
+.portfolio-slide:nth-of-type(12) {
+    left: 1100%;
+}
+
+
+input[type="radio"] {
+    position: relative;
+    display: none;
+}
+
+.portfolio-slide-tab-list {
+    max-width: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    z-index: var(--z-index-top2-click);
+}
+
+.portfolio-slide-tab-list .tab {
+    font-size: var(--p-portfolio-tab-size-desktop-and-large);
+    height: var(--p-portfolio-tab-height-desktop-and-large);
+    border-radius: var(--p-portfolio-tab-height-desktop-and-large);
+
+    border: white solid 1px;
+    padding: 5px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+.portfolio-slide-tab-list .tab:hover {
+    background: var(--primary-white);
+    color: var(--primary-orange);
+}
+
+/*         
+    使用 CSS Selector 選擇器 讓 三張卡片左右位移
+*/
+input[type="radio"]:nth-of-type(1):checked ~.portfolio-slide{
+    transform: translateX(0%);            
+}
+input[type="radio"]:nth-of-type(2):checked ~.portfolio-slide{
+    transform: translateX(-100%);            
+}
+input[type="radio"]:nth-of-type(3):checked ~.portfolio-slide{
+    transform: translateX(-200%);            
+}
+input[type="radio"]:nth-of-type(4):checked ~.portfolio-slide{
+    transform: translateX(-300%);            
+}
+input[type="radio"]:nth-of-type(5):checked ~.portfolio-slide{
+    transform: translateX(-400%);            
+}
+input[type="radio"]:nth-of-type(6):checked ~.portfolio-slide{
+    transform: translateX(-500%);            
+}
+input[type="radio"]:nth-of-type(7):checked ~.portfolio-slide{
+    transform: translateX(-600%);            
+}
+input[type="radio"]:nth-of-type(8):checked ~.portfolio-slide{
+    transform: translateX(-700%);            
+}
+input[type="radio"]:nth-of-type(9):checked ~.portfolio-slide{
+    transform: translateX(-800%);            
+}
+input[type="radio"]:nth-of-type(10):checked ~.portfolio-slide{
+    transform: translateX(-900%);            
+}
+input[type="radio"]:nth-of-type(11):checked ~.portfolio-slide{
+    transform: translateX(-1000%);            
+}
+input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
+    transform: translateX(-1100%);            
+}
+/* 作品集 end */
+
+
+/* 頁尾 start */
+.footer {
+    height: 25vh; /* 高度占瀏覽器 1/4 */
+    min-height: 200px; /* 避免 瀏覽器 高度過矮 被擠壓破版 */
+    background: var(--primary-blue);
+    color: var(--primary-white);
+}
+
+.footer .item-list {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    gap: 10px;
+}
+/* 頁尾 end */
+
+
+
+/* 通用 RWD */
+@media (max-width: 1500px) {
+
+    h1 {
+        font-size: var(--h1-laptop-and-pad);
+    }
+    h2 {
+        font-size: var(--h2-laptop-and-pad);
+    }
+    h3 {
+        font-size: var(--h3-laptop-and-pad);
+    }
+    p {
+        font-size: var(--p-laptop-and-pad);
+    }
+    label {
+        font-size: var(--p-laptop-and-pad);
+    }
+    a {
+        font-size: var(--p-laptop-and-pad);
+    }
+    
+
+    /* 網頁標頭 過場動畫 start */
+    .header-animation .move-slogn-container {
+        height: var(--h1-laptop-and-pad);
+        font-size: var(--h1-laptop-and-pad);        
+    }    
+    .header-animation .center-title .slogan-little {
+        font-size: var(--p-slogan-laptop-and-pad);
+    }
+    /* 網頁標頭 過場動畫 end */
+
+    /* 合作流程 start */
+    .slide h3 {
+        font-size: var(--h3-flow-slide-laptop-and-pad);
+    }
+    /* 合作流程 end */
+
+    /* 作品集 電腦輪播圖 */
+    .portfolio-block {
+        height: 105vh;
+    }
+    .computer-background-img {
+        width: 650px;    
+        height: 400px;       
+        background-image:url("./images/portfolio-slide/bg-computer.png");
+    }
+    .portfolio-slide-list {
+        position: relative;
+        top: 20px;
+        left: 110px;
+    
+        width: 425px;     
+        height: 275px;
+    }
+    .portfolio-slide-tab-list .tab {
+        font-size: var(--p-portfolio-tab-size-laptop-and-pad);
+        height: var(--p-portfolio-tab-height-laptop-and-pad);
+        border-radius: var(--p-portfolio-tab-height-laptop-and-pad);
+    }
+    /* 作品集 end */
+
+    /* 服務項目列表 start */
+    .service-list .left-block {
+        padding: 0 20px;
+    }    
+    .service-list .right-block .right-logo {
+     /*    right: 5vw; */
+     /* 需要使用 js 判斷 rwd */
+     opacity: 0.5;
+    }
+    /* 服務項目列表 end */
+    
+}
+@media (max-width: 800px) {
+    img {
+        max-width: 300px;
+    }    
+    h1 {
+        font-size: var(--h1-mobile);
+    }
+    h2 {
+        font-size: var(--h2-mobile);
+    }
+    h3 {
+        font-size: var(--h3-mobile);
+    }
+    p {
+        font-size: var(--p-mobile);
+    }
+    label {
+        font-size: var(--p-mobile);
+    }
+    a {
+        font-size: var(--p-mobile);
+    }
+    
+
+    /* 上方導覽列 start */
+    nav .text-bounce-bottom-container .text-bounce-bottom-box {
+        width: 7px;
+        left: 28.5px;
+    }
+    nav .logo {
+        margin-left: 25px;
+    }
+    nav .logo img {
+        width: 35px;
+    }
+    nav .nav-centent {
+        width: 430px;
+    }
+    nav .text-bounce-bottom-container {
+        width: 260px;
+    }
+    nav .item-list {
+        width: 260px;
+    }
+    nav .item-list label {
+        display: none;
+    }
+    nav .item-list .item {
+        width: 10px;
+        padding: 0;
+    }
+    /* 上方導覽列 end */
+    
+
+    /* 網頁標頭 過場動畫 start */
+    .header-animation .move-slogn-container {
+        height: var(--h1-mobile);
+        font-size: var(--h1-mobile);        
+    }    
+    .header-animation .center-title .slogan-little {
+        font-size: var(--p-slogan-mobile);
+    }
+    .move-slogn-container {
+        opacity: 0.05;
+    }
+    /* 網頁標頭 過場動畫 end */
+
+
+    /* 報價流程 start */
+    .price-work-flow {
+        justify-content: flex-start;
+        height: 900px;
+    }
+    .price-work-flow img {
+        display: none;
+    }
+    .price-work-flow h3 {
+        font-size: var(--h3-flow-slide-mobile);
+    }
+    .price-work-flow p {
+        font-size: var(--p-mobile);
+    }
+
+    .price-work-flow .price-work-flow-slide {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .price-work-flow .price-work-flow-slide .flow-tab-list {
+        /* 流程 icon tab list 改垂直 */
+        flex-direction: column;
+        justify-content: space-around;
+        height: 640px;
+    }
+    .price-work-flow .price-work-flow-slide .flow-tab-list .flow-tab {
+        width: var(--h3-flow-slide-mobile);
+    }
+    .price-work-flow-bounce-bottom-box {
+        display: none;
+    }
+    .fa-arrow-right {
+        display: none;
+    }
+    .price-work-flow-slide .flow-tab-list  .fa-arrow-down {
+        display: block;
+    }
+    .price-work-flow .price-work-flow-slide .flow-slide-list {
+        /* 垂直流程內容 */
+        width: 280px;
+        height: 180px;
+        flex-direction: column;
+        overflow:initial;
+    }
+    .price-work-flow .price-work-flow-slide .flow-slide-list .slide {
+        text-align: left;
+        display: flex;
+        align-items: flex-start;
+        padding-left: 20px;
+    }
+    .price-work-flow .price-work-flow-slide .flow-slide-list .slide h3 {
+        text-align: left;
+    }
+    .price-work-flow .price-work-flow-slide .flow-slide-list .slide p {
+        text-align: left;
+    }
+    .flow-slide-list .slide:nth-of-type(1) {
+        left: 0;
+        top: 0;
+    }
+    .flow-slide-list .slide:nth-of-type(2) {
+        left: 0;
+        top: 100%;
+    }
+    .flow-slide-list .slide:nth-of-type(3) {
+        left: 0;
+        top: 200%;
+    }
+    .flow-slide-list .slide:nth-of-type(4) {
+        left: 0;
+        top: 300%;
+    }
+    .flow-button-icon-list {
+        display: none;
+    }
+    /* 報價流程 end */
+
+
+    /* 服務項目列表 start */
+    .service-list {
+        flex-direction: column;
+    }
+    .service-list .right-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 15%;
+    }    
+    .service-list .right-block h2 {
+        margin-bottom: 10%;
+    }
+    .service-list .left-block { 
+        margin: 0 50px;
+    }
+    .service-list img {
+        display: none;
+    }
+    .service-list .left-block {
+        padding: 0 10px;
+    }
+    .service-list .left-block .item p {
+        line-height: 20px;
+        padding: 1px 0 20px 0;
+        align-items: left;
+    }
+    /* 服務項目列表 end */
+
+
+    /* 作品集 start */    
+    .portfolio-block {
+        border-radius: 50px 50px 0 0;
+    }
+    .portfolio-block .portfolio-block-title { /* h2 */
+        font-size: 50px;
+    }
+    .portfolio-block p { 
+        font-size: 15px;
+    }
+
+    /* 作品集 電腦輪播圖 */
+    .portfolio-block p {
+        padding: 1rem 1rem;
+    }
+    .computer-background-img {
+        width: 350px;    
+        height: 250px;    
+        /* 不同設備 長寬比不同, vh, vw 設定易破圖 */   
+        background-image:
+            url("./images/portfolio-slide/bg-computer-little.png");
+    }
+    .portfolio-slide-list {
+        position: relative;
+        top: 20px;
+        left: 34px;
+        width: 275px;     
+        height: 165px;
+    }
+    .portfolio-slide-tab-list {
+        padding: 1rem 1rem;
+    }
+    .portfolio-slide-tab-list .tab {        
+        font-size: var(--p-portfolio-tab-size-mobile);
+        height: var(--p-portfolio-tab-height-mobile);
+        border-radius: var(--p-portfolio-tab-height-mobile);
+    }
+    /* 作品集 end */
+
+
+    /* 頁尾 start */
+    .footer {
+        height: 60vh;
+    }
+    .footer .item-list {
+        flex-direction: column;
+    }
+    /* 頁尾 end */
+}
+
+
+
+

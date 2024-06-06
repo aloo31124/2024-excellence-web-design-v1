@@ -1,0 +1,82 @@
+
+
+
+
+========================================================================
+05/03
+scroll + fixed 固定
+
+
+1. js 取得 
+=> 瀏覽器高度
+=> 該 文件docment 總 高度height
+=> 當前顯示位於 文件docment
+
+2. js 需改變 position : 
+=> scroll 一定高度, fixed 改為 absolute 定位:
+
+    element.style.position = 'absolute';  
+    element.style.position = 'fixed';
+  
+
+2. 背景圖片
+=> 使用 外層 relative, 內層 absolute 定位
+
+
+
+
+========================================================================
+05/03
+position : relative , absolute , static
+
+1. 外層 relative, 內層 absolute 
+=> 內層 absolute 會向外找到 外層 relative 定位
+=> 使用 top, left, right, button 定位
+
+2. 背景圖片可使用此方法定位
+
+
+========================================================================
+05/03
+nav 導覽列, 按鈕btn, 背景圖 覆蓋問題:
+=> z-index 與 position 議題
+
+
+1. positoion : static 會造成 z-index 失效
+=> static 為何? 如何產生?
+
+
+
+========================================================================
+05/02
+a href # + id 滑動議題:
+
+1. a href 是被點選者, 包在外層方便適應 RWD
+
+2. html{} 設定 scroll-behavior: smooth; 會有點選後滑動效果, 但會與 gsap 元素衝突
+
+
+========================================================================
+04/25 
+
+如上程式, 如何在 nav-item1 被 click 後, 使用 animation效果: text-bounce-button-animation?
+
+
+
+========================================================================
+04/25
+
+    <nav>
+        <div class="text-bounce-button-container">
+                    <div class="item">
+                        <img src="./images/icon/icon-shank-hand.png">
+                        <a href="#price-work-flow">合作交流</a>
+                    </div>
+                    ...
+            <span class="text-bounce-button"></span>
+        </div>
+    </nav>
+
+滑鼠 hover 移到 .item, 修改 .text-bounce-button 的 left 
+
+========================================================================
